@@ -1,10 +1,12 @@
-module instruction_mem #(parameter ADDR_WIDTH = 32, DATA_WIDTH = 32) (
+module instruction_mem 
+//#(parameter ADDR_WIDTH = 32, DATA_WIDTH = 32)
+ (
     input logic clk, // Clock input
-    input logic [ADDR_WIDTH-1:0] address, // Address input (byte addressable)
-    output logic [DATA_WIDTH-1:0] instruction // 32-bit instruction output
+    input logic [31:0] address, // Address input (byte addressable)
+    output logic [31:0] instruction // 32-bit instruction output
 );
-    // Byte-addressable memory: 2 KB = 2048 bytes
-    (* KEEP = "True" *) logic [7:0] mem [0:2047];
+    // Byte-addressable memory: 1 KB = 1024 bytes
+    logic [7:0] mem [0:1023];
     logic [31:0] temp_instr; // Temporary storage for fetched instruction
 
     initial begin

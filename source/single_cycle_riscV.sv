@@ -1,5 +1,5 @@
 module single_cycle_riscV #(parameter N=32)(input logic clk,reset, input logic [31:0]instruction,output logic [31:0]rs2_data,alu_out,
-output logic [N-1:0]r_out,output logic [31:0]address,mem_out, output logic mem_read, mem_write);
+output logic [N-1:0]r_out,output logic [31:0]address,input logic [31:0] mem_out, output logic mem_read, mem_write);
 (* KEEP = "TRUE" *)wire [N-1:0]rs1_data,imm_out,pc_signed_offset,return_addr;
 (* KEEP = "TRUE" *)wire [6:0]opcode,imm11_5;
 (* KEEP = "TRUE" *)wire [2:0]aluop,fn3;

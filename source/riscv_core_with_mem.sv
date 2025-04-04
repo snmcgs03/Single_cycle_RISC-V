@@ -2,7 +2,10 @@ module riscv_core_with_mem #(parameter N=32)(
     input logic clk, reset
 );
 (* KEEP = "TRUE" *) wire [31:0] instruction;
-(* KEEP = "TRUE" *) wire [31:0] rs2_data,write_data,alu_out;
+(* KEEP = "TRUE" *) wire [31:0] rs2_data;
+(* KEEP = "TRUE" *) wire [31:0] write_data;
+(* KEEP = "TRUE" *) wire [31:0] alu_out;
+
 (* KEEP = "TRUE" *) wire [N-1:0] wb_data;
 (* KEEP = "TRUE" *) wire [31:0] address, mem_out;
 (* KEEP = "TRUE" *) wire mem_read, mem_write;
