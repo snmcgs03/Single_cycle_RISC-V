@@ -1,11 +1,11 @@
-module alu(alu_control,alu_out,zero,rs1_data,rs2_data,fn3,fn7_1);
+module alu(alu_control,alu_out,zero,rs1_data,rs2_data);
 input logic [3:0]alu_control;
-input logic [2:0]fn3;
-input logic fn7_1;
+//input logic [2:0]fn3;
+//input logic fn7_1;
 output logic zero;
 output logic [31:0]alu_out;
 input logic [31:0]rs1_data,rs2_data;
-logic [63:0]alu_bus;
+//logic [63:0]alu_bus;
 wire signed [31:0]rss1_data,rss2_data;
 
 assign rss1_data = signed'(rs1_data);
@@ -18,56 +18,56 @@ zero = 0;
 alu_out = 0;
 case(alu_control)
        4'b0000:   //R-Type  //add + load + store + addi //Mul 
-       begin
-       if(fn7_1)
-       case(fn3)
-       3'b000:
-       begin
-       alu_bus = (rss1_data*rss2_data);//mul
-       alu_out = alu_bus[31:0];
-       end
-       3'b001:
-       begin
-       alu_bus = (rss1_data*rss2_data);//mulh
-       alu_out = alu_bus[63:32];
-       end 
-       3'b010:
-       begin
-       alu_bus = (rss1_data*rs2_data);//mulhsu
-       alu_out = alu_bus[63:32];
-       end
-       3'b011:
-       begin
-       alu_bus = (rs1_data*rs2_data);//mulhu
-       alu_out = alu_bus[63:32];
-       end
+       //begin
+       //if(fn7_1)
+       //case(fn3)
+       //3'b000:
+       //begin
+       //alu_bus = (rss1_data*rss2_data);//mul
+       //alu_out = alu_bus[31:0];
+       //end
+       //3'b001:
+      // begin
+       //alu_bus = (rss1_data*rss2_data);//mulh
+       //alu_out = alu_bus[63:32];
+       //end 
+       //3'b010:
+       //begin
+       //alu_bus = (rss1_data*rs2_data);//mulhsu
+       //alu_out = alu_bus[63:32];
+       //end
+       //3'b011:
+       //begin
+       //alu_bus = (rs1_data*rs2_data);//mulhu
+       //alu_out = alu_bus[63:32];
+       //end
        
-       3'b100:
-       begin
-       if(rss2_data == 0)
-        $error("division by zero");
-       else
-       alu_out = rss1_data/rss2_data;//signed
-       end
+       //3'b100:
+       //begin
+       //if(rss2_data == 0)
+        //$error("division by zero");
+       //else
+       //alu_out = rss1_data/rss2_data;//signed
+       //end
        
-       3'b101:
-       begin
-       if(rs2_data == 0)
-        $error("division by zero");
-       else
-       alu_out = rs1_data/rs2_data;//unsigned
-       end
+       //3'b101:
+       //begin
+       //if(rs2_data == 0)
+        //$error("division by zero");
+       //else
+       //alu_out = rs1_data/rs2_data;//unsigned
+       //end
        
-       3'b110:
-       alu_out = rss1_data%rss2_data;//signed
-       3'b111:
-       alu_out = rs1_data%rs2_data;//unsigned
-       endcase
+       //3'b110:
+       //alu_out = rss1_data%rss2_data;//signed
+       //3'b111:
+       //alu_out = rs1_data%rs2_data;//unsigned
+       //endcase
        
        
-       else 
+       //else 
        alu_out = rss1_data + rss2_data; // add
-       end
+       //end
        
        4'b0001: //sub 
        alu_out = rss1_data - rss2_data;

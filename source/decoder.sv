@@ -1,12 +1,12 @@
-module decoder #(parameter N=32)(instruction,rs1,rs2,rd,opcode,fn3,imm,imm_uj,fn7_5,imm11_5,fn7_1);
+module decoder #(parameter N=32)(instruction,rs1,rs2,rd,opcode,fn3,imm,imm_uj,fn7_5,imm11_5);
 input logic [31:0]instruction;
 output logic [4:0]rs1,rs2,rd;
 output logic [6:0]opcode,imm11_5;
 output logic [2:0]fn3;
 output logic [11:0]imm;
 output logic [19:0]imm_uj;
-output logic fn7_5,fn7_1;
-
+output logic fn7_5;
+//output logic fn7_1;
 always_comb
 begin
 rd = 0;
@@ -17,7 +17,7 @@ imm = 0;
 imm_uj = 0;
 imm11_5 = 0;
 fn7_5 = 0;
-fn7_1 = 0;
+//fn7_1 = 0;
 opcode = instruction[6:0];
 
 case(opcode)
@@ -28,7 +28,7 @@ case(opcode)
         rs1 = instruction[19:15];
         rs2 = instruction[24:20];
         fn7_5 = instruction[29];
-        fn7_1 = instruction[25];
+       // fn7_1 = instruction[25];
     end
     7'b0010011: //I-Type
     begin
