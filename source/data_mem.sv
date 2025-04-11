@@ -11,7 +11,7 @@ module data_mem
 );
 
     // Declare 4096 bytes of memory, each 8 bits wide (1 byte)
-    logic [7:0] mem [0:4095];
+    logic [7:0] mem [0:255];
 
     // Initialize memory contents from an external hex file at simulation start
     initial begin
