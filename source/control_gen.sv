@@ -6,7 +6,7 @@ always_comb
 begin
 U_control = 2'b0;
 case(opcode_out_d)
-7'b1101111: //Jal
+7'b1101111: //Jal + jalr
 U_control = 2'b00;
 
 
@@ -15,6 +15,7 @@ U_control = 2'b01;
 
 7'b0010111: //auipc
 U_control = 2'b10;
+
 
 default: 
 begin

@@ -17,57 +17,8 @@ begin
 zero = 0;
 alu_out = 0;
 case(alu_control)
-       4'b0000:   //R-Type  //add + load + store + addi //Mul 
-       //begin
-       //if(fn7_1)
-       //case(fn3)
-       //3'b000:
-       //begin
-       //alu_bus = (rss1_data*rss2_data);//mul
-       //alu_out = alu_bus[31:0];
-       //end
-       //3'b001:
-      // begin
-       //alu_bus = (rss1_data*rss2_data);//mulh
-       //alu_out = alu_bus[63:32];
-       //end 
-       //3'b010:
-       //begin
-       //alu_bus = (rss1_data*rs2_data);//mulhsu
-       //alu_out = alu_bus[63:32];
-       //end
-       //3'b011:
-       //begin
-       //alu_bus = (rs1_data*rs2_data);//mulhu
-       //alu_out = alu_bus[63:32];
-       //end
-       
-       //3'b100:
-       //begin
-       //if(rss2_data == 0)
-        //$error("division by zero");
-       //else
-       //alu_out = rss1_data/rss2_data;//signed
-       //end
-       
-       //3'b101:
-       //begin
-       //if(rs2_data == 0)
-        //$error("division by zero");
-       //else
-       //alu_out = rs1_data/rs2_data;//unsigned
-       //end
-       
-       //3'b110:
-       //alu_out = rss1_data%rss2_data;//signed
-       //3'b111:
-       //alu_out = rs1_data%rs2_data;//unsigned
-       //endcase
-       
-       
-       //else 
+       4'b0000:   //R-Type  //add + load + store + addi + jalr
        alu_out = rss1_data + rss2_data; // add
-       //end
        
        4'b0001: //sub 
        alu_out = rss1_data - rss2_data;
@@ -153,6 +104,7 @@ case(alu_control)
        else
        zero = 0;
        end       
+       
        
 endcase
 end

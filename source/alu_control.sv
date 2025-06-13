@@ -51,7 +51,7 @@ end
 begin
 
 if(fn3 == 3'b000)
-control_out = 4'b0000;  //addi
+control_out = 4'b0000;  //addi + jalr
 
 if(fn3 == 3'b100)
 control_out = 4'b0010;  //xori
@@ -138,14 +138,13 @@ end
 
 3'b101: //Jal and jalr
 begin
-
 if(fn3 == 3'b000)
-control_out = 4'b0000;  //jal
-else
+//control_out = 4'b0000;  //jal
+//else
 control_out = 4'b0000;  //jalr
 end
 
-default: control_out = 0;
+default: control_out = 4'b0000;
 endcase
 end
 endmodule

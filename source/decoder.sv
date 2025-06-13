@@ -21,13 +21,13 @@ fn7_5 = 0;
 opcode = instruction[6:0];
 
 case(opcode)
-    7'b0110011: //R-Type and M-Type
+    7'b0110011: //R-Type 
     begin
         rd = instruction[11:7];
         fn3 = instruction[14:12];
         rs1 = instruction[19:15];
         rs2 = instruction[24:20];
-        fn7_5 = instruction[29];
+         fn7_5 = instruction[30];
        // fn7_1 = instruction[25];
     end
     7'b0010011: //I-Type
@@ -59,16 +59,33 @@ case(opcode)
         rs2 = instruction[24:20];
         imm = {instruction[31],instruction[7],instruction[30:25],instruction[11:8]};
     end
-    7'b1101111: //J-Type
+    7'b1101111: //J-Type jal
     begin
         rd = instruction[11:7];
         imm_uj = {instruction[31],instruction[19:12],instruction[20],instruction[30:21]};
     end
-    7'b0110111: //U-Type
+
+    7'b0110111: //U-Type lui
     begin
         rd = instruction[11:7];
         imm_uj = {instruction[31:12]};
     end
+    
+    
+    7'b1100111: // J-Type JALR
+begin
+    rd  = instruction[11:7];
+    rs1 = instruction[19:15];
+    fn3 = instruction[14:12]; // Should be 000
+    imm = instruction[31:20]; // 12-bit signed immediate
+end
+
+    7'b0010111: // U-Type AUIPC
+begin
+    rd     = instruction[11:7];
+    imm_uj  = instruction[31:12]; // upper 20 bits
+end
+    
     default:
     begin
     rd = 0;

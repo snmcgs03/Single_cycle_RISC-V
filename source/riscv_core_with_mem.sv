@@ -10,6 +10,7 @@ module riscv_core_with_mem #(parameter N=32)(
 (* KEEP = "TRUE" *) wire [N-1:0] wb_data;
 (* KEEP = "TRUE" *) wire [31:0] address, mem_out;
 (* KEEP = "TRUE" *) wire mem_read, mem_write;
+(* KEEP = "TRUE" *) wire [2:0] fn3;
 
 (* DONT_TOUCH = "TRUE" *) instruction_mem inst_mem (
     .clk(clk),
@@ -21,6 +22,7 @@ module riscv_core_with_mem #(parameter N=32)(
     .clk(clk),
     .reset(reset),
     .instruction(instruction),
+    .fn3(fn3),
     .rs2_data(rs2_data),
     .r_out(wb_data),
     .address(address),
@@ -34,6 +36,7 @@ module riscv_core_with_mem #(parameter N=32)(
     .clk(clk),
     .mem_read(mem_read),
     .mem_write(mem_write),
+     .fn3(fn3),
     .addr(alu_out),
     .write_data(rs2_data),
     .read_data(mem_out)
