@@ -1,4 +1,4 @@
-module Program_Counter 
+module program_counter 
 (
     input logic [31:0] pc_next,
     input logic clk, reset,
@@ -7,7 +7,7 @@ module Program_Counter
 
     always_ff @(posedge clk or posedge reset) begin
         if (reset)
-            address <= 32'b0;
+            address <= 32'h00000000;
         else
             address <= pc_next;
     end

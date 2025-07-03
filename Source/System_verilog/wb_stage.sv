@@ -1,6 +1,6 @@
-module wb_stage#(parameter N=32)(mem_out,alu_out,memtoreg,wb_data,return_addr,imm_out,pc_signed_offset,opcode_out_d);
-input logic [N-1:0]mem_out,alu_out,return_addr,imm_out,pc_signed_offset;
-output logic [N-1:0]wb_data;
+module wb_stage(mem_out,alu_out,memtoreg,wb_data,return_addr,imm_out,pc_signed_offset,opcode_out_d);
+input logic [31:0]mem_out,alu_out,return_addr,imm_out,pc_signed_offset;
+output logic [31:0]wb_data;
 input logic [1:0]memtoreg;
 //input logic and_out_ex;
 input logic [6:0]opcode_out_d;

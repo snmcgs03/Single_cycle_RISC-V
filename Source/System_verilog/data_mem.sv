@@ -1,15 +1,15 @@
-module data_mem (
-    input logic clk,
-    input logic mem_write,
-    input logic mem_read,
-    input logic [31:0] addr,
-    input logic [31:0] write_data,
+module data_mem(
+    input  logic        clk,
+    input  logic        mem_write,
+    input  logic        mem_read,
+    input  logic [31:0] addr,
+    input  logic [31:0] write_data,
     output logic [31:0] read_data
 );
 
-    logic [7:0] mem [0:255]; // 256 bytes of RAM
+    logic [7:0] mem [0:1023]; // 1023 bytes (byte-addressable memory)
 
-    // Write
+    // Write operation (on rising edge of clk)
     always_ff @(posedge clk) begin
         if (mem_write) begin
             mem[addr]     <= write_data[7:0];
@@ -19,10 +19,12 @@ module data_mem (
         end
     end
 
-    // Read: 
-    always_ff @(posedge clk) begin
+    // Read operation (combinational)
+    always_comb begin
         if (mem_read) begin
-            read_data <= {mem[addr + 3], mem[addr + 2], mem[addr + 1], mem[addr]};
+            read_data = {mem[addr + 3], mem[addr + 2], mem[addr + 1], mem[addr]};
+        end else begin
+            read_data = 32'b0; 
         end
     end
 

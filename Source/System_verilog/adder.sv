@@ -1,7 +1,7 @@
-module adder #(parameter N=32)
+module adder
 (
-    input logic [N-1:0] address, b,
-    output logic [N-1:0] pc_new
+    input logic [31:0] address, b,
+    output logic [31:0] pc_new
 );
 
 always_comb

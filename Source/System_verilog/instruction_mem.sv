@@ -1,23 +1,22 @@
 module instruction_mem (
     input  logic         clk,         // Clock input
-    input  logic [31:0]  address,     // Byte address input
+    input  logic [31:0]  address,     // Byte address input (usually PC)
     output logic [31:0]  instruction  // 32-bit instruction output
 );
-    parameter MEM_SIZE = 256;
 
-    logic [7:0] mem [0:MEM_SIZE-1];    // Byte-addressable memory
-    logic [31:0] temp_instr;
+    logic [7:0] mem [0:1023];  // 1024 bytes = 256 instructions
 
-    // Combinational fetch (little-endian)
-    always_comb begin
-        if ((address[1:0] == 2'b00) && (address <= MEM_SIZE - 4)) begin
-            temp_instr = {mem[address + 3], mem[address + 2], mem[address + 1], mem[address]};
-        end else begin
-            temp_instr = 32'h00000000;
-        end
-    end
-
+    // Clocked fetch with alignment and bounds check
     always_ff @(posedge clk) begin
-        instruction <= temp_instr;
+        if ((address[1:0] == 2'b00) && (address <= 1020)) begin
+            instruction <= {
+                mem[address + 3],
+                mem[address + 2],
+                mem[address + 1],
+                mem[address + 0]
+            };
+        end else begin
+            instruction <= 32'h00000000;  // Invalid access returns NOP
+        end
     end
 endmodule

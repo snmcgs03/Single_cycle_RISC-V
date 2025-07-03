@@ -1,7 +1,7 @@
-module mux31 #(parameter N=32)(a,b,c,out,cntrl);
-input logic [N-1:0]a,b,c;
+module mux31 (a,b,c,out,cntrl);
+input logic [31:0]a,b,c;
 input logic [1:0]cntrl;
-output logic [N-1:0]out;
+output logic [31:0]out;
 
 always_comb
 begin

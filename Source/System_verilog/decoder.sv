@@ -1,4 +1,4 @@
-module decoder #(parameter N=32)(instruction,rs1,rs2,rd,opcode,fn3,imm,imm_uj,fn7_5,imm11_5);
+module decoder(instruction,rs1,rs2,rd,opcode,fn3,imm,imm_uj,fn7_5,imm11_5);
 input logic [31:0]instruction;
 output logic [4:0]rs1,rs2,rd;
 output logic [6:0]opcode,imm11_5;
