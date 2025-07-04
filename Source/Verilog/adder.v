@@ -1,7 +1,7 @@
-module adder #(parameter N = 32) (
-    input wire [N-1:0] address, // Input address
-    input wire [N-1:0] b,       // Input value to add
-    output reg [N-1:0] pc_new   // Output new PC value
+module adder (
+    input wire [31:0] address, // Input address
+    input wire [31:0] b,       // Input value to add
+    output reg [31:0] pc_new   // Output new PC value
 );
 
     always @(*) begin

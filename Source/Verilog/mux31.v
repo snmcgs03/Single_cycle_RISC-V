@@ -1,9 +1,9 @@
-module mux31 #(parameter N = 32) (
-    input wire [N-1:0] a,    // Input A
-    input wire [N-1:0] b,    // Input B
-    input wire [N-1:0] c,    // Input C
+module mux31 (
+    input wire [31:0] a,    // Input A
+    input wire [31:0] b,    // Input B
+    input wire [31:0] c,    // Input C
     input wire [1:0] cntrl,  // Control signal
-    output reg [N-1:0] out   // Output
+    output reg [31:0] out   // Output
 );
 
     // Combinational logic block for 3:1 MUX

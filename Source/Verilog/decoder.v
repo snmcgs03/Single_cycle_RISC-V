@@ -1,4 +1,4 @@
-module decoder #(parameter N = 32) (
+module decoder (
     input wire [31:0] instruction,
     output reg [4:0] rs1, rs2, rd,
     output reg [6:0] opcode, imm11_5,

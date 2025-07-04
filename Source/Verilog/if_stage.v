@@ -1,24 +1,24 @@
-module if_stage #(parameter N = 32) (
-    input wire clk,                  // Clock input
-    input wire and_out,              // Control signal
-    input wire reset,                // Reset signal
-    input wire [N-1:0] pc_signed_offset, // Program counter offset
-    input wire [6:0] opcode,         // Opcode input
-    output wire [N-1:0] address,     // Current program counter
-    output wire [N-1:0] pc_new       // Next program counter
+module if_stage (
+    input clk,
+    input and_out,
+    input reset,
+    input [31:0] pc_signed_offset,
+    input [6:0] opcode,
+    output [31:0] address,
+    output [31:0] pc_new
 );
 
-    wire [N-1:0] pc_next;            // Output of mux21
-    wire pc_gen_out;                 // Control signal for the mux21
+    wire [31:0] pc_next;
+    wire pc_gen_out;
 
-    // Adder instance
-    (* DONT_TOUCH = "TRUE" *) adder #(N) add (
+    // Adder: PC + 4
+    (* DONT_TOUCH = "TRUE" *) adder add (
         .address(address),
         .b(4),
         .pc_new(pc_new)
     );
 
-    // MUX instance
+    // Mux: Select between PC+4 and branch target
     (* DONT_TOUCH = "TRUE" *) mux21 mu (
         .a(pc_new),
         .b(pc_signed_offset),
@@ -26,7 +26,7 @@ module if_stage #(parameter N = 32) (
         .y(pc_next)
     );
 
-    // Program Counter instance
+    // Program Counter register
     (* DONT_TOUCH = "TRUE" *) Program_Counter programc (
         .pc_next(pc_next),
         .address(address),
@@ -34,7 +34,7 @@ module if_stage #(parameter N = 32) (
         .reset(reset)
     );
 
-    // PC Control Logic instance
+    // PC Control logic
     (* DONT_TOUCH = "TRUE" *) pc_cntrl pc_cnt (
         .opcode(opcode),
         .and_out(and_out),

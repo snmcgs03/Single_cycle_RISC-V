@@ -25,7 +25,6 @@ module riscv_core_with_mem(
         .reset(reset),
         .instruction(instruction),
         .rs2_data(rs2_data),
-       // .r_out(wb_data),
         .address(address),
         .mem_out(mem_addr_out),
         .mem_read(mem_read),

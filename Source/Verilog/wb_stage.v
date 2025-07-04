@@ -1,12 +1,12 @@
-module wb_stage #(parameter N = 32) (
-    input wire [N-1:0] mem_out,          // Memory output
-    input wire [N-1:0] alu_out,          // ALU output
-    input wire [N-1:0] return_addr,      // Return address
-    input wire [N-1:0] imm_out,          // Immediate output
-    input wire [N-1:0] pc_signed_offset, // PC signed offset
+module wb_stage (
+    input wire [31:0] mem_out,          // Memory output
+    input wire [31:0] alu_out,          // ALU output
+    input wire [31:0] return_addr,      // Return address
+    input wire [31:0] imm_out,          // Immediate output
+    input wire [31:0] pc_signed_offset, // PC signed offset
     input wire [6:0] opcode_out_d,       // Opcode output
     input wire [1:0] memtoreg,           // Mem to reg control
-    output wire [N-1:0] wb_data          // Write-back data
+    output wire [31:0] wb_data          // Write-back data
 );
 
     // Internal wires
