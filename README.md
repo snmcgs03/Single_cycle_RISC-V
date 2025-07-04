@@ -26,7 +26,8 @@ The final result—either an ALU output, computed address, or memory-returned va
 
 The top-level module integrates the processor core with instruction and data memory blocks to create a self-contained simulation environment. The memory modules are external to the core and interact via standard interface signals. Testbenches are provided to evaluate instruction sequences, monitor control behavior, and validate data flow correctness. Outputs are easily observable through key register file reads and result ports.
 
-Refer to: [`riscv_core_with_mem.pdf`](./riscv_core_with_mem.pdf)
+Refer to: [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/riscv_core_with_mem.pdf)
+
 
 ---
 
@@ -54,11 +55,12 @@ All instructions are supported at the ISA level with correct control, datapath r
 
 ##  Documentation Artifacts
 
-- [`IF_Stage.pdf`](./IF_Stage.pdf)
-- [`ID_Stage.pdf`](./ID_Stage.pdf)
-- [`Execution_Stage.pdf`](./Execution_Stage.pdf)
-- [`WB_Stage.pdf`](./WB_Stage.pdf)
-- [`riscv_core_with_mem.pdf`](./riscv_core_with_mem.pdf)
+- [IF_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/IF_Stage.pdf)
+- [ID_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/ID_Stage.pdf)
+- [Execution_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Execution_Stage.pdf)
+- [WB_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/WB_Stage.pdf)
+- [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/riscv_core_with_mem.pdf)
+
 
 These documents capture structural schematics and signal flow across individual modules.
 
