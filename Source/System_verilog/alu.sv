@@ -100,8 +100,13 @@ case(alu_control)
        zero = 1;
        else
        zero = 0;
-       end       
+       end 
        
+       default:
+       begin
+       zero = 0;
+       alu_out = 0;
+       end       
        
 endcase
 end
