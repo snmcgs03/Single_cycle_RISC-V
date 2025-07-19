@@ -134,14 +134,15 @@ always @(*) begin
         
         default: // Handle unspecified opcodes
         begin
-             branch   = 'b0;  
-             memread   = 'b0;  
-             memtoreg = 'b11;  
-             memwrite = 'b0;  
-             alusrc   = 'b0;  
-             reg_write = 'b0;  
-             aluop    = 'b000;  
-             mux_inp = 1'b0;
+            branch     = 1'b0;
+            memread    = 1'b0;
+            memtoreg   = 2'b11;  
+            memwrite   = 1'b0;
+            alusrc     = 1'b0;
+            reg_write  = 1'b0;
+            aluop      = 3'b000;  
+            mux_inp    = 1'b0;
+
          end
     endcase
 end
