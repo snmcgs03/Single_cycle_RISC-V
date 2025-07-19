@@ -7,5 +7,4 @@ module mux21
 
 always_comb
 y = control ? b : a;
-//assign y = reset ? 32'h00000000 : y;
 endmodule
