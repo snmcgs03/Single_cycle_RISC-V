@@ -1,4 +1,4 @@
-#  RV32I Single-Cycle RISC-V Processor Core
+# Advaita-V_Core (RV32I Single-Cycle RISC-V Processor Core)
 
 This repository presents a synthesizable and functionally validated RISC-V core based on the **RV32I base integer instruction set architecture**, supporting all standard instruction formats: **R, I, S, B, U, and J**. The core is architected using a **single-cycle control flow**, and is built to enable self-contained simulation with integrated instruction and data memory modules. Its modular RTL design promotes ease of validation, debug, and future extensibility—making it suitable for hardware architecture research, education, and SoC integration.
 
