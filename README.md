@@ -26,7 +26,7 @@ The final result—either an ALU output, computed address, or memory-returned va
 
 The top-level module integrates the processor core with instruction and data memory blocks to create a self-contained simulation environment. The memory modules are external to the core and interact via standard interface signals. Testbenches are provided to evaluate instruction sequences, monitor control behavior, and validate data flow correctness. Outputs are easily observable through key register file reads and result ports.
 
-Refer to: [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/riscv_core_with_mem.pdf)
+Refer to: [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Top_Module.pdf)
 
 
 ---
@@ -34,8 +34,8 @@ Refer to: [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RIS
 ##  Supported RV32I Instruction Formats
 
 - **R-Type**: `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLL`, `SRL`, `SRA`, `SLT`, `SLTU`
-- **I-Type**: `ADDI`, `ANDI`, `ORI`, `XORI`, `SLLI`, `SRLI`, `SRAI`, `LW`, `JALR`
-- **S-Type**: `SW`
+- **I-Type**: `ADDI`, `ANDI`, `ORI`, `XORI`, `SLLI`, `SRLI`, `SRAI`, `LW`,`LH`,`LB`,`LHU`,`LBU`, `JALR`
+- **S-Type**: `SW`,`SH`,`SB`
 - **B-Type**: `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU`
 - **U-Type**: `LUI`, `AUIPC`
 - **J-Type**: `JAL`
@@ -57,9 +57,10 @@ All instructions are supported at the ISA level with correct control, datapath r
 
 - [IF_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/IF_Stage.pdf)
 - [ID_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/ID_Stage.pdf)
-- [Execution_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Execution_Stage.pdf)
+- [Ex_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Ex_Stage.pdf)
 - [WB_Stage.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/WB_Stage.pdf)
-- [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/riscv_core_with_mem.pdf)
+- [Core.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Core.pdf)
+- [Top_Module.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Top_Module.pdf)
 
 
 These documents capture structural schematics and signal flow across individual modules.
