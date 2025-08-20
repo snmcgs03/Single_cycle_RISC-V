@@ -26,7 +26,7 @@ The final result—either an ALU output, computed address, or memory-returned va
 
 The top-level module integrates the processor core with instruction and data memory blocks to create a self-contained simulation environment. The memory modules are external to the core and interact via standard interface signals. Testbenches are provided to evaluate instruction sequences, monitor control behavior, and validate data flow correctness. Outputs are easily observable through key register file reads and result ports.
 
-Refer to: [riscv_core_with_mem.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Top_Module.pdf)
+Refer to: [Top_Module.pdf](https://github.com/snmcgs03/Single_cycle_RISC-V/raw/main/RTL/Top_Module.pdf)
 
 
 ---
