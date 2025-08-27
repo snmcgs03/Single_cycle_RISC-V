@@ -66,5 +66,8 @@ All instructions are supported at the ISA level with correct control, datapath r
 These documents capture structural schematics and signal flow across individual modules.
 
 ---
+## License
+This project is licensed under the [Apache License 2.0](LICENSE).  
+You are free to use, modify, and distribute this work with proper attribution.
 
 
